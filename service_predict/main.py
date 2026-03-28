@@ -48,7 +48,9 @@ async def predict_water_level(data: FloodPredictionInput):
         prediction = model.predict(input_data)
         
         return FloodPredictionOutput(
-            predicted_muc_nuoc_t_plus_1=float(prediction[0])
+            predicted_muc_nuoc_t_plus_1=float(prediction[0]),
+            lat=data.lat,
+            long=data.long
         )
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

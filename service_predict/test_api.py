@@ -4,6 +4,8 @@ import json
 API_URL = "http://localhost:8000/predict"
 
 payload = {
+    "lat": 14.1,
+    "long": 108.2,
     "muc_nuoc": 0.5,
     "month": 8,
     "rolling_mean_7d": 0.48,

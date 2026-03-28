@@ -1,6 +1,8 @@
 from pydantic import BaseModel, Field
 
 class FloodPredictionInput(BaseModel):
+    lat: float = Field(..., description="Latitude (Vĩ độ trạm)")
+    long: float = Field(..., description="Longitude (Kinh độ trạm)")
     muc_nuoc: float = Field(..., description="Normalized Mực nước hiện tại")
     month: int = Field(..., description="Tháng hiện tại (1-12)")
     rolling_mean_7d: float = Field(..., description="Normalized 7-day Rolling Mean")
@@ -11,3 +13,6 @@ class FloodPredictionInput(BaseModel):
 
 class FloodPredictionOutput(BaseModel):
     predicted_muc_nuoc_t_plus_1: float
+    lat: float
+    long: float
+
